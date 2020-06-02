@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ProcessComponent } from './process.component';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  constructor(private modalCtrl: ModalController) {}
 
-  constructor() {}
-
+  async launchModal() {
+    const modal = await this.modalCtrl.create({ component: ProcessComponent });
+    modal.present();
+  }
 }

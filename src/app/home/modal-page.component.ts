@@ -29,25 +29,30 @@ export class ModalPageComponent implements OnInit, OnChanges, AfterViewInit {
   ) { }
 
   ngOnChanges() {
+    // All of these angular events are skipped when the parent component uses OnPush
     console.log('ngOnChanges');
   }
 
   ngOnInit() {
+    // All of these angular events are skipped when the parent component uses OnPush
     console.log('ngOnInit');
   }
 
   ngAfterViewInit() {
+    // All of these angular events are skipped when the parent component uses OnPush
     console.log('ngAfterViewInit');
   }
 
   ionViewWillEnter() {
-    // this.changeDetector.markForCheck();
-
+    // Ionic lifecycle hooks are still firing, though
     console.log('ionViewWillEnter');
+
+    // Putting this line in will cause it to display the correct value initially,
+    // and also after the timeout.  But that really shouldn't be necessary.
+    // this.changeDetector.markForCheck();
 
     setTimeout(() => {
       this.testText.next('I give you: TEXT!');
-      // this.changeDetector.markForCheck();
     }, 3000);
   }
 

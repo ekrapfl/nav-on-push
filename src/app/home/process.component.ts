@@ -7,6 +7,7 @@ import { ModalPageComponentModule, ModalPageComponent } from './modal-page.compo
   selector: 'app-process',
   template: `<ion-nav [root]="ModalPageComponent"></ion-nav>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // Swap back to default change detection strategy to see it work properly
   // changeDetection: ChangeDetectionStrategy.Default,
 })
 export class ProcessComponent {
